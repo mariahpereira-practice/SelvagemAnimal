@@ -9,7 +9,8 @@ export default function Header({title}) {
                 <h3>{title}</h3>
                 <nav className={headerStyles.topnav}>
                     <Link to="/">Início</Link>
-                    <Link to="/blog">Blog</Link>
+                    <Link to="/animal">Ver Animais</Link>
+                    <Link to="/about">Sobre nós</Link>
                 </nav>
         </div>
     )
