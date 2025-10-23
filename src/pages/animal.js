@@ -38,9 +38,21 @@ export default function AnimalPage() {
                             />
                             )}
                         <p>Nome Científico: {item.frontmatter.nomeCientifico}</p>
-                        <Link to={`/${item.frontmatter.slug}`}>
-                        Ver mais sobre   
-                        </Link>
+                        <nav className="botoes-animal">
+                                <Link to={`/${item.frontmatter.slug}`}>Ver mais sobre</Link>
+                                <Link to={`/ficha-adocao`} 
+                                state={{
+                                    animal: {
+                                        nome: item.frontmatter.nome,
+                                        nomeCientifico: item.frontmatter.nomeCientifico,
+                                        hero_image: item.frontmatter.hero_image,
+                                        hero_image_alt: item.frontmatter.hero_image_alt
+                                    }
+                                }}
+                                >
+                                Preencher Ficha de Adoção</Link>
+                        </nav>
+                        
                         <p>{item.excerpt}</p>
                         {posts.length > 1 && posts.indexOf(item) !== posts.length - 1 && <hr/>}
                     </article>
@@ -50,4 +62,4 @@ export default function AnimalPage() {
     );
 }
 
-export const Head = () => <title>Selvagem Animal - Posts</title>;
+export const Head = () => <title>Selvagem Animal - Animais</title>;
