@@ -6,34 +6,9 @@
    background-color: aliceblue;
 }
 
-.header {
-    grid-area: header;
-    background-color: aquamarine;
-    padding: 10px;
-}
-
 .main {
     grid-area: main;
     padding: 10px;
-}
-
-.topnav{
-    overflow: hidden;
-    background-color: #AECFDF;
-}
-
-.topnav a {
-    float: left;
-    display: black;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.topnav a:hover {
-    background-color: #9F9FAD;
-    color: black;
 }
 
 .input[type=text], input[type=email], select, textarea {

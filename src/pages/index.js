@@ -12,4 +12,4 @@ export default function IndexPage() {
   )
 }
 
-export const Head = () => <title>Meu Blog - Home</title>
+export const Head = () => <title>Selvagem Animal - Home</title>

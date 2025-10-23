@@ -3,8 +3,17 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `selvagem_animal`,
-    siteUrl: `https://www.yourdomain.tld`,
+    title: `Estudos do Jamstack com Gatsby`,
+    siteUrl: `https://www.infnet.edu.br`,
   },
-  plugins: [],
+  plugins: [
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'blog',
+        path: `${__dirname}/blog`,
+      }
+    },
+    "gatsby-plugin-mdx",
+  ],
 }
