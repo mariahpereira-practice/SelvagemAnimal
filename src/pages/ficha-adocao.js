@@ -6,7 +6,7 @@ import { Link } from "gatsby";
 export default function FichaDeAdocaoPage({location}) {
   const animal = location.state?.animal;
 
-  const [inputs, setInputs] = useState({nome:"", email:"", assunto:"", mensagem:""});
+  const [inputs, setInputs] = useState({nome:"", email:"", animal:animal.nome, mensagem:""});
 
   const handleChange = (event) => {
       const name = event.target.name;
@@ -27,17 +27,15 @@ const handleSubmit = (event) => {
       body: encode({"form-name": "form-react", ...inputs})
   }).then(() => {
       alert("Em breve daremos uma resposta de seu contato! Obrigado(a)!");
-      setInputs({nome:"", email:"", assunto:"", mensagem:""});
+      setInputs({nome:"", email:"", animal:animal.nome, mensagem:""});
   }).catch(error => alert(error));    
 };
 
   return (
     <Layout title="Home Page">
-      <h1>Ficha de Adoção</h1>
+      <h1>Ficha de Adoção - {animal.nome}</h1>
       {animal ? (
         <><div>
-          <h2>{animal.nome}</h2>
-          <p><strong>Nome Científico:</strong> {animal.nomeCientifico}</p>
           {animal.hero_image && (
             <img
               src={animal.hero_image}
@@ -47,20 +45,33 @@ const handleSubmit = (event) => {
         </div><div className="container">
                 <form name="form_react" method="post" onSubmit={handleSubmit} data-netlify="true" data-netlify-honeypot="bot-field">
                     <input type="hidden" name="form-name" value="form-estatico"></input>
-                    <label>Nome:
+                    <br></br>
+                    <label className="label">
+                      <span>Animal: {inputs.animal}</span>
+                    </label>
+                    <br></br>
+                    <label className="label">
+                        <span>Nome Completo do Adotante:</span>
                         <input type="text" name="nome" value={inputs.nome} onChange={handleChange}></input>
                     </label>
-                    <label>E-mail:
+                    <label className="label">
+                        <span>E-mail de contato:</span>
                         <input type="text" name="email" value={inputs.email} onChange={handleChange}></input>
                     </label>
-                    <label>Assunto:
-                        <input type="text" name="assunto" value={inputs.assunto} onChange={handleChange}></input>
+                    
+                    
+                    <br></br>
+                    <label className="label">Por que você deseja adotar este animal?
                     </label>
-                    <label>Mensagem:
-                        <textarea name="mensagem" rows={5} value={inputs.mensagem} onChange={handleChange}></textarea>
-                    </label>
-                    <input type="submit" value="Enviar"></input>
-                    <input type="reset" value="Limpar"></input>
+                    <textarea name="mensagem" rows={5} value={inputs.mensagem} onChange={handleChange}></textarea>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <div className="botoes-form">
+                      <input type="submit" value="Enviar"></input>
+                      <input type="reset" value="Limpar"></input>
+                    </div>
+
                 </form>
             </div></>
       ) : (
