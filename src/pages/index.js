@@ -20,7 +20,7 @@ export default function IndexPage() {
           </div>
           <div>
             <h3>Receba conteúdos exclusivos</h3>
-            <p>Ao adotar, você recebe um kit digital com:</p>
+            <p>Ao ter sua adoção aprovada, você recebe um kit digital com:</p>
                 <ul>
                     <li>Certificado de adoção personalizado.</li>
                     <li>Ficha informativa sobre o animal.</li>
