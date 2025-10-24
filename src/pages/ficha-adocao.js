@@ -5,6 +5,12 @@ import { Link } from "gatsby";
 
 export default function FichaDeAdocaoPage({location}) {
   const animal = location.state?.animal;
+  if(animal == undefined){
+    if (typeof window !== "undefined") {
+      alert("Nenhum animal foi selecionado para adoção. Você será redirecionado para a página de animais.");
+      window.location.href = "/animal";
+    }
+  }
 
   const [inputs, setInputs] = useState({nome:"", email:"", animal:animal.nome, mensagem:""});
 

@@ -19,7 +19,17 @@ export default function AnimalPost({data, children}) {
             />
             )} 
             <nav className="botoes-animal">
-                    <Link to="/animal" className="botoes-animal">Ver outros animais</Link>
+                  <Link to={`/ficha-adocao`} state={{
+                                                      animal: {
+                                                          nome: animal.nome,
+                                                          nomeCientifico: animal.nomeCientifico,
+                                                          hero_image: animal.hero_image,
+                                                          hero_image_alt: animal.hero_image_alt
+                                                      }
+                                                  }}
+                                                  >
+                                                  Preencher Ficha de Adoção</Link>
+                  <Link to="/animal" className="botoes-animal">Ver outros animais</Link> 
             </nav>
         </Layout>
     )
