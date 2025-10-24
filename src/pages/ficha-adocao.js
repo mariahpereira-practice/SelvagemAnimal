@@ -5,7 +5,7 @@ import { Link } from "gatsby";
 
 export default function FichaDeAdocaoPage({location}) {
   const animal = location.state?.animal;
-  if(animal == undefined){
+  if(animal === undefined){
     if (typeof window !== "undefined") {
       alert("Nenhum animal foi selecionado para adoção. Você será redirecionado para a página de animais.");
       window.location.href = "/animal";
@@ -37,23 +37,22 @@ const handleSubmit = (event) => {
   }).catch(error => alert(error));    
 };
 
+const handleReset = (event) => {
+  event.preventDefault();
+  setInputs({nome: "", email: "", animal: animal.nome, mensagem: ""});
+};
+
   return (
     <Layout title="Home Page">
-      <h1>Ficha de Adoção - {animal.nome}</h1>
+      <h3 className="titulo">Ficha de Adoção - {animal.nome}</h3>
       {animal ? (
-        <><div>
-          {animal.hero_image && (
-            <img
-              src={animal.hero_image}
-              alt={animal.hero_image_alt || "Imagem do animal"}
-              style={{ maxWidth: "100%", height: "auto" }} />
-          )}
-        </div><div className="container">
-                <form name="form_react" method="post" onSubmit={handleSubmit} data-netlify="true" data-netlify-honeypot="bot-field">
+        <div className="flex-container ficha-container">
+          <div className="col-1">
+                <form name="form_react" method="post" onSubmit={handleSubmit} onReset={handleReset} data-netlify="true" data-netlify-honeypot="bot-field">
                     <input type="hidden" name="form-name" value="form-estatico"></input>
                     <br></br>
                     <label className="label">
-                      <span>Animal: {inputs.animal}</span>
+                      <span className="span-nome">Animal: {inputs.animal}</span>
                     </label>
                     <br></br>
                     <label className="label">
@@ -64,8 +63,6 @@ const handleSubmit = (event) => {
                         <span>E-mail de contato:</span>
                         <input type="text" name="email" value={inputs.email} onChange={handleChange}></input>
                     </label>
-                    
-                    
                     <br></br>
                     <label className="label">Por que você deseja adotar este animal?
                     </label>
@@ -73,20 +70,27 @@ const handleSubmit = (event) => {
                     <br></br>
                     <br></br>
                     <br></br>
-                    <div className="botoes-form">
+                    <nav className="botoes-animal">
                       <input type="submit" value="Enviar"></input>
                       <input type="reset" value="Limpar"></input>
-                    </div>
+                      <Link to="/animal">Ver outros animais</Link>
+                    </nav>
 
                 </form>
-            </div></>
+            </div>
+            <div className="col-2">
+          {animal.hero_image && (
+            <img
+              className="imagem-sobre-animal"
+              src={animal.hero_image}
+              alt={animal.hero_image_alt || "Imagem do animal"}
+              style={{ maxWidth: "100%", height: "auto" }} />
+          )}
+        </div>
+            </div>
       ) : (
         <p>Nenhum animal foi selecionado.</p>
       )}
-      <br></br>
-      <nav className="botoes-animal">
-        <Link to="/animal" className="botoes-animal">Ver outros animais</Link>
-      </nav>
     </Layout>
   )
 }

@@ -6,7 +6,7 @@ export default function Header({title}) {
 
     return (
         <div className={headerStyles.header}>
-                <h3>{title}</h3>
+                <h3 style={{ color: "white", marginLeft: "15px" }}>{title}</h3>
                 <nav className={headerStyles.topnav}>
                     <Link to="/">Início</Link>
                     <Link to="/animal">Ver Animais</Link>

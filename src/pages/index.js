@@ -5,10 +5,10 @@ import { StaticImage } from "gatsby-plugin-image";
 export default function IndexPage() {
   return (
     <Layout title="Home Page">
-      <h1>Adote Virtualmente um Animal Selvagem</h1>
-      <br></br>
       <div class="flex-container">
-        <div class="col-1">
+      <div class="col-1">
+        <h1 className="titulo">Adote Virtualmente um Animal Selvagem</h1> 
+        <br></br>     
           <div>
               <h3>Transforme sua curiosidade em cuidado</h3>
               <p>Você sabia que pode ajudar na proteção de animais selvagens sem sair de casa? Com a adoção virtual, você escolhe um animal para acompanhar de perto e contribui diretamente para sua preservação.</p>
@@ -46,7 +46,7 @@ export default function IndexPage() {
           <StaticImage
           src="../images/gato_porco_urso.png"
           alt="Gato, porco e urso"
-          className="imagem col-2"
+          className="col-2"
           placeholder="blurred"
           layout="constrained"
         />
