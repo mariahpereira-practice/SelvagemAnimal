@@ -5,14 +5,16 @@ import { Link } from "gatsby";
 
 export default function FichaDeAdocaoPage({location}) {
   const animal = location.state?.animal;
-  if(animal === undefined){
+
+  const [inputs, setInputs] = useState({nome:"", email:"", animal:animal?.nome || "", mensagem:""});
+
+  if(!animal){
     if (typeof window !== "undefined") {
       alert("Nenhum animal foi selecionado para adoção. Você será redirecionado para a página de animais.");
       window.location.href = "/animal";
     }
+    return null;
   }
-
-  const [inputs, setInputs] = useState({nome:"", email:"", animal:animal.nome, mensagem:""});
 
   const handleChange = (event) => {
       const name = event.target.name;
@@ -43,9 +45,10 @@ const handleReset = (event) => {
 };
 
   return (
-    <Layout title="Home Page">
-      <h3 className="titulo">Ficha de Adoção - {animal.nome}</h3>
+    <Layout title="Ficha de Adoção">
       {animal ? (
+        <>
+        <h3 className="titulo">Ficha de Adoção - {animal.nome}</h3>
         <div className="flex-container ficha-container">
           <div className="col-1">
                 <form name="form_react" method="post" onSubmit={handleSubmit} onReset={handleReset} data-netlify="true" data-netlify-honeypot="bot-field">
@@ -88,6 +91,7 @@ const handleReset = (event) => {
           )}
         </div>
             </div>
+      </>
       ) : (
         <p>Nenhum animal foi selecionado.</p>
       )}
