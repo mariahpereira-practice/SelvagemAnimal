@@ -51,7 +51,7 @@ const handleReset = (event) => {
         <h3 className="titulo">Ficha de Adoção - {animal.nome}</h3>
         <div className="flex-container ficha-container">
           <div className="col-1">
-                <form name="form_react" method="post" onSubmit={handleSubmit} onReset={handleReset} data-netlify="true" data-netlify-honeypot="bot-field">
+                <form name="form-react" method="post" onSubmit={handleSubmit} onReset={handleReset} data-netlify="true" data-netlify-honeypot="bot-field">
                     <input type="hidden" name="form-name" value="form-estatico"></input>
                     <br></br>
                     <label className="label">
