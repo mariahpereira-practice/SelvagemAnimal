@@ -24,7 +24,7 @@ export default function FichaDeAdocaoPage({location}) {
 
   const encode = (data) => {
     return Object.keys(data)
-    .map(key => encodeURIComponent(key) + '-' + encodeURIComponent(data[key])).join('&');
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])).join('&');
 }
 
 const handleSubmit = (event) => {
