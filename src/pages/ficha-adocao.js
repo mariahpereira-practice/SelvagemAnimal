@@ -55,7 +55,7 @@ const handleReset = (event) => {
                     <input type="hidden" name="form-name" value="form-estatico"></input>
                     <br></br>
                     <label className="label">
-                      <span className="span-nome">Animal: {inputs.animal}</span>
+                      <span className="span-nome" name="animal">Animal: {inputs.animal}</span>
                     </label>
                     <br></br>
                     <label className="label">
