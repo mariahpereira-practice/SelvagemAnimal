@@ -4,7 +4,7 @@
 module.exports = {
   siteMetadata: {
     title: `Selvagem Animal`,
-    siteUrl: `https://www.infnet.edu.br`,
+    siteUrl: `https://selvagemanimal.netlify.app`,
   },
   plugins: [
     {
